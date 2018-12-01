@@ -1,0 +1,126 @@
+#control_panel{
+
+  background-color: rgb(245,245,245);
+  width: 20%;
+  height: 100vh; /* must be negative nav height later !!!*/
+  display: block;
+  float: left;
+  border-right: 1px solid #ced4da;
+}
+
+#search{
+  margin: 2rem 0.5rem 3rem;
+  border-width: 1px;
+  border-radius: .25rem;
+  border-style: solid;
+  border-color: #ced4da;
+
+  &:focus-within, &:hover{
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(28, 165, 216);
+  }
+}
+
+.search_form{
+  box-sizing: content-box;
+  display: flex;
+  margin-bottom: 0;
+}
+
+.search_input{
+  flex: 0 1 auto;
+  overflow: hidden;
+  display: block;
+  border: none;
+
+  &:focus{
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+
+.search_submit{
+  flex: 1;
+  background-color: rgb(221, 221, 221);
+  box-sizing: border-box;
+  white-space: nowrap;
+  height: calc(2.25rem + 2px);
+  padding: 0 1rem;
+  border-radius: 0 .25rem .25rem 0;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+  border-color: #ced4da;
+  cursor: pointer;
+
+  &:hover{
+    background-color: rgb(71, 232, 71);
+    transition: all 0.5s ease-out;
+  }
+}
+
+#control_menu{
+
+}
+
+.control_option{
+  transition: all 2s linear, z-index 0;
+  transition: background-color 0.3s linear;
+  border-top: 1px solid rgb(220,220,220);
+  border-bottom: 1px solid rgb(220,220,220);
+  background-color: rgb(245,245,245);
+
+  margin-top: -1px;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  z-index: 1;
+
+  &:hover{
+
+    outline: 1px solid red;
+      background-color: rgb(220,220,220);
+    z-index: 2;
+
+    .control_name i{
+      transition: all 0.3s ease-out;
+      width: 5%;
+      padding-left:5%;
+    }
+  }
+
+}
+
+.control_name{
+
+  color: rgb(100,100,100);
+
+  h1{
+    display: inline-block;
+    width: calc(90% - 1rem);
+    padding-left: 1rem;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+  i{
+    display: inline-block;
+    width: 10%;
+    font-size: 1.25rem;
+
+
+  }
+
+
+}
+
+.control_menu{
+
+  display: none;
+}

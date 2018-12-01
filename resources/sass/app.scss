@@ -4,9 +4,14 @@
 
 // Variables
 @import 'variables';
-
+$fa-font-path:        "../webfonts";
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+
+@import 'content';
+@import 'control-panel';
 
 .navbar-laravel {
   background-color: #fff;
