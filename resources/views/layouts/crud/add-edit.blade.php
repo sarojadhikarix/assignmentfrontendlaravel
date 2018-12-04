@@ -19,11 +19,8 @@
             @switch($value->type)
 
               @case("text")
-                  {{Form::text(key($values), '', ['class'=> 'form-control', 'placeholder'=>$value->placeholder])}}
-              @break
-
               @case("textarea")
-                {{Form::textarea(key($values), '', ['class'=> 'form-control', 'placeholder'=> $value->placeholder])}}
+                  {{Form::{$value->type}(key($values), '', ['class'=> 'form-control', 'placeholder'=>$value->placeholder])}}
               @break
 
               @case("file")

@@ -32,7 +32,7 @@ class TestController extends Controller
           'placeholder' => 'category'
         ],
         'description' => (object)[
-          'type' => 'text',
+          'type' => 'textarea',
           'name' => 'Description',
           'placeholder' => 'description'
         ],
@@ -72,7 +72,7 @@ class TestController extends Controller
           'placeholder' => 'category'
         ],
         'description' => (object)[
-          'type' => 'text',
+          'type' => 'textarea',
           'name' => 'Description',
           'placeholder' => 'description'
         ],
