@@ -10,10 +10,10 @@
         <a class="nav-link" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="{{URL::route('website.add')}}">Website</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="{{URL::route('category.add')}}">Category</a>
       </li>
     </ul>
   </div>
