@@ -3,6 +3,8 @@
 @include('layouts.default.head')
 
 <body>
+
+
 @include('layouts.default.nav')
 
 @include('layouts.default.control_panel')
