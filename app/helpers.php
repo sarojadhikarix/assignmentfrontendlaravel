@@ -9,36 +9,29 @@ function getDataFromAPI($url){
 }
 
 function postOrPUTDATA($method, $url, $data){
-	$curl = curl_init();
- 
+	//open connection
+	$ch = curl_init();
+
 	switch ($method){
-	   case "POST":
-		  curl_setopt($curl, CURLOPT_POST, 1);
-		  if ($data)
-			 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-		  break;
-	   case "PUT":
-		  curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
-		  if ($data)
-			 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);			 					
-		  break;
-	   default:
-		  if ($data)
-			 $url = sprintf("%s?%s", $url, http_build_query($data));
-	}
- 
-	// OPTIONS:
-	curl_setopt($curl, CURLOPT_URL, $url);
-	curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-	   'APIKEY: 111111111111111111111',
-	   'Content-Type: application/json',
-	));
-	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
- 
-	// EXECUTE:
-	$result = curl_exec($curl);
-	if(!$result){die("Connection Failure");}
-	curl_close($curl);
-	return $result;
- }
+		case "POST":
+		
+		   if ($data)
+		    curl_setopt($ch,CURLOPT_URL, $url);
+			curl_setopt($ch,CURLOPT_POST, count($data));
+			curl_setopt($ch,CURLOPT_POSTFIELDS, $data);
+		   break;
+		default:
+		   if ($data)
+			  $url = sprintf("%s?%s", $url, http_build_query($data));
+	 }
+
+	//set the url, number of POST vars, POST data
+
+
+	//So that curl_exec returns the contents of the cURL; rather than echoing it
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER, true); 
+
+	//execute post
+	$result = curl_exec($ch);
+	echo $result;
+}
