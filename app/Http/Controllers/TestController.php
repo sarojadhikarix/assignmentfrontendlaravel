@@ -14,19 +14,17 @@ class TestController extends Controller
 
       $formHeader = (object)[
 
-        'action' => 'TestController@Test',
-        'method' => 'PUT',
-        'enctype' => 'multipart/form-data',
-        'id' => 10 //must be requested from database
+        'action' => 'TestController@addWebsite',
+        'method' => 'POST',
       ];
 
       $values = (object) [
-        'website_url' => (object)[
+        'url' => (object)[
           'type' => 'text',
           'name' => 'Website Url',
           'placeholder' => 'http://'
         ],
-        'category' => (object)[
+        'category_id' => (object)[
           'type' => 'text',
           'name' => 'Category',
           'placeholder' => 'category'
@@ -63,12 +61,12 @@ class TestController extends Controller
       $values = (object) [
         'website_url' => (object)[
           'type' => 'text',
-          'name' => 'Website Url',
+          'name' => 'url',
           'placeholder' => 'http://'
         ],
         'category' => (object)[
           'type' => 'text',
-          'name' => 'Category',
+          'name' => 'category_id',
           'placeholder' => 'category'
         ],
         'description' => (object)[
@@ -89,5 +87,25 @@ class TestController extends Controller
       ];
 
       return view('layouts.crud.add-edit')->with('name', Crud::name())->with('values', $values)->with('formHeader', $formHeader);
+    }
+
+    public function addWebsite(Request $request){
+
+    //   $this->validate(request(), [
+    //     'url' => 'required',
+    //     'user_id' => 'required',
+    //     'validated' => 'required',
+    //     'category_id' => 'required',
+    // ]); 
+      
+      $website = array(
+        'url' => $request->url,
+        'user_id' => 3,
+        'validated' => 1,
+        'category_id' => $request->category_id,
+
+    );
+
+     return postOrPUTDATA('POST','http://localhost:8000/website/', $website);
     }
 }

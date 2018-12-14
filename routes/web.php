@@ -21,3 +21,5 @@ Route::post('/website', 'TestController@Test')->name('website.add');
 
 Route::get('/category', 'TestController@Category')->name('category.add');
 Route::post('/category', 'TestController@Category')->name('category.add');
+
+Route::post('add-website/','TestController@addWebsite');

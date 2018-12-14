@@ -9,26 +9,27 @@
 
     <div class="col-md-12">
 
+
       {!! Form::open([ 'action' => (($formHeader->action == 'PUT') ?  [$formHeader->action, $formHeader->id] : $formHeader->action), 'method' => $formHeader->method, 'enctype'=>isset($formHeader->enctype) ? $formHeader->enctype : '']) !!}
 
-        @foreach ($values as $value)
-
+        @foreach ($values as $key => $value)
+       
           <div class="form-group">
-            {{Form::label(key($values), ($value->name))}}
+            {{Form::label($key, ($value->name))}}
 
             @switch($value->type)
 
               @case("text")
               @case("textarea")
-                  {{Form::{$value->type}(key($values), '', ['class'=> 'form-control', 'placeholder'=>$value->placeholder])}}
+                  {{Form::{$value->type}($key, '', ['class'=> 'form-control', 'placeholder'=>$value->placeholder])}}
               @break
 
               @case("file")
-                {{Form::file(key($values))}}
+                {{Form::file($key)}}
               @break
 
               @case("checkbox")
-                {{Form::checkbox(key($values), '', $value->check)}}
+                {{Form::checkbox($key, '', $value->check)}}
               @break
 
               @default

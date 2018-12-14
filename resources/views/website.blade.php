@@ -2,7 +2,7 @@
 
 @section('form')
 
-    {!! Form::open(['action' => 'TestController@Test', 'method' => 'POST', 'enctype'=>'multipart/form-data']) !!}
+    {!! Form::open(['action' => 'TestController@addWebsite', 'method' => 'POST', 'enctype'=>'multipart/form-data']) !!}
 
       <div class="form-group">
         {{Form::label('website_url', 'Website Url')}}
