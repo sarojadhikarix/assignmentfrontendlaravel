@@ -22,4 +22,7 @@ Route::post('/website', 'TestController@Test')->name('website.add');
 Route::get('/category', 'TestController@Category')->name('category.add');
 Route::post('/category', 'TestController@Category')->name('category.add');
 
+Route::get('categories', function (){
+    return view('categories');
+})->name('categories.show');
 Route::post('add-website/','TestController@addWebsite');

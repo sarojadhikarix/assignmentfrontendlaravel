@@ -10,7 +10,7 @@
 
   <div id="control_menu">
     <div id="Categories" class="control_option">
-      <div class="control_name"><h1 >Categories</h1><i class="fas fa-angle-right"></i></div>
+      <div class="control_name"><h1 ><a href="{{URL::route('categories.show')}}">Categories</a></h1><i class="fas fa-angle-right"></i></div>
       <ul class="control_menu">
         <li>
           <div class="label">Cats</div>
